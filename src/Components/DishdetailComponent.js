@@ -1,8 +1,13 @@
-import React from "react";
-import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
+import React, { Component } from 'react';
+import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem, Label, Modal, ModalHeader, ModalBody, Button, Row, Col } from "reactstrap";
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 
-function RenderDish({dish}) {
+const maxLength = (len) => (val) => !(val) || (val.length <= len); 
+const minLength = (len) => (val) => !(val) && (val.length >= len);
+
+    function RenderDish({dish}) {
         return(
             <div className="col-12 col-md-5 m-1">
                 <Card>
@@ -17,7 +22,7 @@ function RenderDish({dish}) {
 
 }
 
-function RenderComments({comments}) {
+function RenderComments({comments, addComment, dishId}) {
     if (comments != null) 
         return(
             <div className="col-12 col-md-5 m-1">
@@ -33,6 +38,7 @@ function RenderComments({comments}) {
                         );
                     })}
                 </ul>
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
         );
     else
@@ -41,8 +47,133 @@ function RenderComments({comments}) {
         );        
     }
 
+class CommentForm extends Comment {
+
+    constructor(props) {
+        super(props);
+
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.state = {
+            isNavOpen: false,
+            isModalOpen: false
+        };
+    }
+
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+
+    handleSubmit(values) {
+        this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    }
+
+render() {
+    return(
+        <div>
+        <Button outline onClick={this.toggleModal}>
+        <span className="fa fa-pencil" /> Submit Comment
+      </Button>
+      <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+        <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+        <ModalBody>
+          <LocalForm onSubmit={this.handleSubmit}>
+            <Row className="form-group">
+              <Label htmlFor="rating" md={12}>
+                Rating
+              </Label>
+              <Col md={{ size: 12 }}>
+                <Control.select
+                  model=".rating"
+                  name="rating"
+                  className="form-control"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </Control.select>
+              </Col>
+            </Row>
+            <Row className="form-group">
+              <Label htmlFor="author" md={12}>
+                Your Name
+              </Label>
+              <Col md={12}>
+                <Control.text
+                  model=".author"
+                  id="author"
+                  name="author"
+                  placeholder="Your Name"
+                  className="form-control"
+                  validators={{
+                    minLength: minLength(3),
+                    maxLength: maxLength(15)
+                  }}
+                />
+                <Errors
+                  className="text-danger"
+                  model=".author"
+                  show="touched"
+                  messages={{
+                    minLength: "Must be greater than 2 characters",
+                    maxLength: "Must be 15 characters or less"
+                  }}
+                />
+              </Col>
+            </Row>
+            <Row className="form-group">
+              <Label htmlFor="comment" md={12}>
+                Comment
+              </Label>
+              <Col md={12}>
+                <Control.textarea
+                  model=".comment"
+                  id="comment"
+                  name="comment"
+                  rows={5}
+                  className="form-control"
+                />
+              </Col>
+            </Row>
+            <Button type="submit" value="submit" color="primary">
+              Submit
+            </Button>
+          </LocalForm>
+        </ModalBody>
+      </Modal>
+    </div>
+    )
+}
+
+}
+
+
 const DishDetail = (props) => {
-   if (props.dish != null)
+   if (props.isLoading) {
+       return(
+          <div className="container">
+            <div className="row">
+                <Loading />
+            </div>
+          </div>
+       );
+   } 
+   else if (props.errMess) {
+    return(
+        <div className="container">
+          <div className="row">
+              <h4>{props.errMess}</h4>
+          </div>
+        </div>
+     );
+   }
+   else if (props.dish != null)
     return (
         <div className="container">
             <div className="row">
@@ -57,7 +188,9 @@ const DishDetail = (props) => {
             </div>
             <div className="row">
                 <RenderDish dish={props.dish} />
-                <RenderComments comments={props.comments} />
+                <RenderComments comments={props.comments}
+                    addComment={props.addComment}
+                    dishId={props.dish.id} />
             </div>
         </div>
     );
