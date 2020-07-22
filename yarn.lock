@@ -9675,13 +9675,6 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-animation-component@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/react-animation-component/-/react-animation-component-0.2.3.tgz#89ded6856f023c5ba22bcc43418ae06e2a93bf65"
-  integrity sha512-TFKsDE2ewihRyzHQ8MFfI9cBmiqEjhNupisnrbriM9RqpmdhGssQoGAGj/0KBkJX+FWUDs4WozGvMEvZDRxHkA==
-  dependencies:
-    web-library "^0.1.1"
-
 react-animation-components@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-animation-components/-/react-animation-components-3.0.0.tgz#e6a67a3cae88c7c53e44c115fc4b59ad7300cb2c"
@@ -11830,11 +11823,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web-library@^0.1.1:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/web-library/-/web-library-0.1.4.tgz#7e6276bbacc34ef537799d22e4263482cfb067df"
-  integrity sha512-uwPNHbF21cGLw3qLYdinXuhL5zs9v4r31e+R+nVwGrpeZclCYTwVWrRE/rM7BNuFzOs7bTGj5Btpl+FJGJ0b0w==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

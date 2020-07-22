@@ -14,7 +14,6 @@
     "hooks": "^0.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-animation-component": "^0.2.3",
     "react-animation-components": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-popper": "^2.2.3",
@@ -31,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
