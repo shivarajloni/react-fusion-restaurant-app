@@ -4,80 +4,80 @@ export const COMMENTS =
         id: 0,
         dishId: 0,
         rating: 5,
-        comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
+        comment: "Imagine all the eatables, living in Fusion!",
+        author: "Rohit K",
+        date: "2019-12-16T15:52:38.556078Z"
     },
     {
         id: 1,
         dishId: 0,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
+        author: "Sharanu P",
+        date: "2019-09-08T14:58:48.556094Z"
     },
     {
         id: 2,
         dishId: 0,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
+        author: "Manoj",
+        date: "2019-06-17T17:57:28.556094Z"
     },
     {
         id: 3,
         dishId: 0,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
+        author: "Rahul",
+        date: "2020-1-30T11:54:22.556094Z"
     },
     {
         id: 4,
         dishId: 0,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
-        date: "2011-12-02T17:57:28.556094Z"
+        author: "jeevith",
+        date: "2020-11-08T12:57:21.556094Z"
     },
     {
         id: 5,
         dishId: 1,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
-        date: "2012-10-16T17:57:28.556094Z"
+        author: "Jithu",
+        date: "2019-11-15T18:57:20.556094Z"
     },
     {
         id: 6,
         dishId: 1,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
-        date: "2014-09-05T17:57:28.556094Z"
+        author: "Pramod",
+        date: "2019-09-08T15:50:38.556094Z"
     },
     {
         id: 7,
         dishId: 1,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
-        date: "2015-02-13T17:57:28.556094Z"
+        author: "Manoj K",
+        date: "2019-09-15T12:53:21.556094Z"
     },
     {
         id: 8,
         dishId: 1,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
-        date: "2013-12-02T17:57:28.556094Z"
+        author: "Rashmit",
+        date: "2020-1-02T12:67:18.556094Z"
     },
     {
         id: 9,
         dishId: 1,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
+        author: "shivaraj",
         date: "2011-12-02T17:57:28.556094Z"
     },
     {
